@@ -1,0 +1,18 @@
+{% extends 'blog/base.html' %}  <!--extend keyword use korle onno file ta chole ashe-->
+
+{% block default_title %} 
+    Blog Details 
+{% endblock default_title %}
+
+{% block content %}
+        
+            <h1>{{ object.title }}</h1>
+            <h4 style="text-align: right"> {{ object.date|date:"D d M Y, f" }}</h4>
+            
+            {% if object.author == user %}
+                <a class="btn btn-primary btn-sm" href="{% url 'blog-update' object.id %}">Edit</a> | <a class="btn btn-danger fa fa-trash btn-sm" href="{% url 'blog-delete' object.id %}"> Delete</a><br>
+            {% endif %}
+            
+			<p class="container">{{ object.text }}</p>
+        	
+{% endblock %}

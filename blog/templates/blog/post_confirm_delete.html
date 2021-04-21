@@ -1,0 +1,22 @@
+{% extends 'blog/base.html' %}
+
+{% block default_tile %} 
+    Delete Blog Post 
+{% endblock default_tile %}
+
+{% block content %}
+	
+	<form method="POST">
+		{% csrf_token %}
+		<fieldset>
+			<legend>Delete Blog Post</legend>
+			<h2>Are you sure you want to delete the post: "{{ object.title }}"?</h2>
+		</fieldset>
+		<div>
+			<button class="btn btn-danger" type="submit">Yes, delete the post</button>
+			<a class="btn btn-outline" href="{% url 'blog-detail' object.id %}">No, I've changed my mind</a>
+		</div>
+	</form>
+	
+
+{% endblock %}

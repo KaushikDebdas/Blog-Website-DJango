@@ -1,0 +1,18 @@
+{% extends 'blog/base.html' %}  <!--extend keyword use korle onno file ta chole ashe-->
+
+{% block default_title %}
+    Blog Homepage 
+{% endblock default_title %}
+
+{% block content %}
+    {% for post in posts %}
+
+        <div style="padding: 10px 0px">
+            <a href="{% url 'blog-detail' post.id %}"><h1>{{ post.title }}</h1></a>
+            <h4> <a href="#"> {{ post.author }} </a> , {{ post.date|date:"D d M Y, f" }}</h4>
+			<!--<p class="ui text container">{{ post.text }}</p>-->
+        </div>
+        <hr>
+			
+    {% endfor %}
+{% endblock %}

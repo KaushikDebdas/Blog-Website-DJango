@@ -1,0 +1,30 @@
+{% extends "blog/base.html" %}
+
+{% load crispy_forms_tags %}
+
+{% block default_title %} Register for new user {% endblock default_title %}
+
+{% block content %}
+    <div>
+        <form method="POST">
+          {% csrf_token %} <!-- #jate from hijack na hoye jay tai security -->
+            <fieldset>
+                <legend>Join Today</legend><br>
+                {{ form|crispy }}
+            </fieldset>
+            
+            <!-- Signup button add-->
+            <div>
+                <button class="btn btn-outline-info" type="submit">Sign Up</button>
+            </div>
+        </form>
+        
+       
+        
+        <!--already account thakle login page a niye jabe-->
+        <div>
+            <small>Already have an account? <a href="{% url 'login' %}">Log In</a></small>
+        </div>
+    </div>
+	
+{% endblock content %}

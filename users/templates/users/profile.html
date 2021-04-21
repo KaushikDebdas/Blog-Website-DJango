@@ -1,0 +1,14 @@
+{% extends "blog/base.html" %}
+
+{% load crispy_forms_tags %}
+
+{% block default_title %} Profile {% endblock default_title %}
+
+{% block content %}
+    <div>
+        <div>
+            <h1>My name is {{ user.username}} <a href="{% url 'profile' %}"></h1></p>
+        </div>
+    </div>
+	
+{% endblock content %}

@@ -1,0 +1,24 @@
+{% extends 'blog/base.html' %}  <!--extend keyword use korle onno file ta chole ashe-->
+
+{% block default_title %}
+    New Blog Post 
+{% endblock default_title %}
+
+{% load crispy_forms_tags %}    <!--Crispy From--> 
+
+{% block content %}
+
+            <form method="POST">
+            {% csrf_token %} <!-- #jate from hijack na hoye jay tai security -->
+                <fieldset>
+                    <legend><strong>New Blog Post</strong></legend>
+                    {{ form|crispy }}   <!--Crispy Form er moddhe jate ashe-->
+                </fieldset>
+                
+                <!-- POST button add-->
+                <div>
+                    <button class="btn btn-outline-info" type="submit">POST</button>
+                </div>
+            </form>
+        	
+{% endblock %}

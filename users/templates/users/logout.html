@@ -1,0 +1,15 @@
+{% extends "blog/base.html" %}
+
+{% load crispy_forms_tags %}
+
+{% block default_title %} Logout {% endblock default_title %}
+
+{% block content %}
+    <div>
+        <!--already account thakle login page a niye jabe-->
+        <div>
+            <p>Your are logged out <a href="{% url 'login' %}">Login Again</a></p>
+        </div>
+    </div>
+	
+{% endblock content %}
